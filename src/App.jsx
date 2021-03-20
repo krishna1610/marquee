@@ -48,6 +48,7 @@ class App extends React.Component {
     ) {
       activePage = this.state.pages[this.state.activePageIndex];
       appStyle.backgroundImage = `url(/backgrounds/${activePage.blocks[0].background})`;
+      appStyle.backgroundSize = "cover";
     }
 
     return (
