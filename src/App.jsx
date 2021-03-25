@@ -41,18 +41,20 @@ class App extends React.Component {
 
   render() {
     let activePage;
-    const appStyle = {};
     if (
       this.state.activePageIndex >= 0 &&
       this.state.activePageIndex < this.state.pages.length
     ) {
       activePage = this.state.pages[this.state.activePageIndex];
-      appStyle.backgroundImage = `url(/backgrounds/${activePage.blocks[0].background})`;
-      appStyle.backgroundSize = "cover";
+      document.body.style.background = `url(/backgrounds/${activePage.blocks[0].background}) no-repeat center center fixed`;
+      document.body.style.backgroundSize = "cover";
+    } else {
+      document.body.style.background = null;
+      document.body.style.backgroundSize = null;
     }
 
     return (
-      <div className="d-flex w-100 h-100 mx-auto flex-column" style={appStyle}>
+      <div className="d-flex w-100 h-100 mx-auto flex-column">
         <header className="mb-auto">
           <nav className="navbar navbar-dark">
             <div className="container">
